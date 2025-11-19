@@ -1,4 +1,4 @@
-# Ligar LED utilizando a saída Vcc
+# Piscar LED em ciclos de 1 segundo
 
 ## Obejetivo
 
