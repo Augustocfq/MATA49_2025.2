@@ -1,17 +1,17 @@
-<circuit version="1.1.0-SR1" rev="2005" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+<circuit version="1.1.0-SR1" rev="" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
 
-<item itemtype="Fixed Voltage" CircId="Fixed Voltage-1" mainComp="false" Show_id="false" Show_Val="false" Pos="-480,-208" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-1" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-1" mainComp="false" Show_id="false" Show_Val="false" Pos="-436,-108" rotation="270" hflip="1" vflip="1" label="Fixed Voltage-1" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
 
-<item itemtype="Resistor" CircId="Resistor-2" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-428,-208" rotation="0" hflip="1" vflip="1" label="Resistor-2" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Resistance="100 Ω" />
+<item itemtype="Resistor" CircId="Resistor-2" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-404,-180" rotation="0" hflip="1" vflip="1" label="Resistor-2" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Resistance="100 Ω" />
 
-<item itemtype="Led" CircId="Led-3" mainComp="false" Show_id="false" Show_Val="false" Pos="-384,-180" rotation="0" hflip="1" vflip="1" label="Led-3" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="Yellow" Grounded="false" Threshold="2.4 V" MaxCurrent="30 mA" Resistance="0.6 Ω" />
+<item itemtype="Led" CircId="Led-3" mainComp="false" Show_id="false" Show_Val="false" Pos="-352,-180" rotation="0" hflip="1" vflip="1" label="Led-3" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="Yellow" Grounded="false" Threshold="2.4 V" MaxCurrent="30 mA" Resistance="0.6 Ω" />
 
-<item itemtype="MCU" CircId="mega328-4" mainComp="false" Show_id="true" Show_Val="false" Pos="-308,-196" rotation="0" hflip="1" vflip="1" label="mega328-4" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="16 MHz" Program="../../PSBREVISAO/1.1-LigarLedNEG/1.1-LigarLedNEG/Debug/1.1-LigarLedNEG.hex" Auto_Load="false" saveEepr="true" Logic_Symbol="false" Rst_enabled="false" Ext_Osc="false" Wdt_enabled="false" Clk_Out="false" MainMcu="true" SerialMon="-1" />
+<item itemtype="MCU" CircId="mega328-4" mainComp="false" Show_id="true" Show_Val="false" Pos="-308,-196" rotation="0" hflip="1" vflip="1" label="mega328-4" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="16 MHz" Auto_Load="false" saveEepr="true" Logic_Symbol="false" Rst_enabled="false" Ext_Osc="false" Wdt_enabled="false" Clk_Out="false" MainMcu="true" SerialMon="-1" />
 
-<item itemtype="Connector" uid="Connector-1" startpinid="Led-3-lPin" endpinid="Resistor-2-rPin" pointList="-400,-180,-400,-208,-412,-208" />
+<item itemtype="Connector" uid="Connector-1" startpinid="Led-3-lPin" endpinid="Resistor-2-rPin" pointList="-368,-180,-388,-180" />
 
-<item itemtype="Connector" uid="Connector-2" startpinid="Resistor-2-lPin" endpinid="Fixed Voltage-1-outnod" pointList="-444,-208,-464,-208" />
+<item itemtype="Connector" uid="Connector-2" startpinid="Resistor-2-lPin" endpinid="Fixed Voltage-1-outnod" pointList="-420,-180,-436,-180,-436,-124" />
 
-<item itemtype="Connector" uid="Connector-3" startpinid="Led-3-rPin" endpinid="mega328-4-PORTD0" pointList="-368,-180,-316,-180" />
+<item itemtype="Connector" uid="Connector-3" startpinid="Led-3-rPin" endpinid="mega328-4-PORTD0" pointList="-336,-180,-316,-180" />
 
 </circuit>
