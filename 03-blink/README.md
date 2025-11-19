@@ -36,18 +36,18 @@ Para implementar a rotina de atraso utilizaremos a informação de que o µC ATm
 ```asm
 ATRASO:
     LDI R1, 82
-L1:
-    LDI R2, 255
-L2:
-    LDI R3, 255
-L3:
-    DEC R3
-    BRNE L3
-    DEC R2
-    BRNE L2
-    DEC R1
-    BRNE L1
-    RET
+    L1:
+        LDI R2, 255
+    L2:
+        LDI R3, 255
+    L3:
+        DEC R3
+        BRNE L3
+        DEC R2
+        BRNE L2
+        DEC R1
+        BRNE L1
+        RET
 ```
 
 (**Observação:** `BRNE Lx`, nesse caso, não precisa de uma instrução como `CPI Rx, 0` antes pois ele, como dito na introdução, verifica sempre a Flag Z do SREG, então ele voltará para Lx sempre que o decremento não resultou em 0.)
