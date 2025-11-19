@@ -42,11 +42,11 @@ ATRASO:
         LDI R19, 255
     L19:
         DEC R19
-        BRNE L3
+        BRNE L19
         DEC R18
-        BRNE L2
+        BRNE L18
         DEC R17
-        BRNE L1
+        BRNE L17
     RET 
 ```
 
