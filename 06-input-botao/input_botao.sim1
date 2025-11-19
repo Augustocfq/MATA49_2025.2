@@ -2,7 +2,7 @@
 
 <item itemtype="MCU" CircId="mega328-1" mainComp="false" Show_id="true" Show_Val="false" Pos="-524,-188" rotation="0" hflip="1" vflip="1" label="mega328-1" idLabPos="-6.62561,-16.5294" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="16 MHz" Program="input_botao.hex" Auto_Load="false" saveEepr="true" Logic_Symbol="false" Rst_enabled="false" Ext_Osc="false" Wdt_enabled="false" Clk_Out="false" MainMcu="true" SerialMon="-1" />
 
-<item itemtype="Push" CircId="Push-5" mainComp="false" Show_id="false" Show_Val="false" Pos="-580,-172" rotation="0" hflip="1" vflip="1" label="Push-5" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Norm_Close="false" Poles="1" />
+<item itemtype="Push" CircId="Push-5" mainComp="false" Show_id="true" Show_Val="false" Pos="-580,-188" rotation="0" hflip="1" vflip="1" label="INC" idLabPos="-8.0985,-23.6708" labelrot="0" valLabPos="-16,20" valLabRot="0" Norm_Close="false" Poles="1" />
 
 <item itemtype="Seven Segment" CircId="Seven Segment-25" mainComp="false" Show_id="false" Show_Val="false" Pos="-376,-164" rotation="0" hflip="1" vflip="1" label="Seven Segment-25" idLabPos="20,-44" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="Yellow" NumDisplays="1" Vertical_Pins="false" CommonCathode="true" Threshold="2.4 V" MaxCurrent="20 mA" Resistance="1 Ω" />
 
@@ -12,7 +12,9 @@
 
 <item itemtype="Resistor" CircId="Resistor-29" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-368,-104" rotation="90" hflip="1" vflip="1" label="Resistor-29" idLabPos="-16,-24" labelrot="0" valLabPos="-3.6953,-8.82874" valLabRot="-90" Resistance="100 Ω" />
 
-<item itemtype="Connector" uid="Connector-31" startpinid="mega328-1-PORTD0" endpinid="Push-5-switch0pinN" pointList="-532,-172,-564,-172" />
+<item itemtype="Push" CircId="Push-31" mainComp="false" Show_id="true" Show_Val="false" Pos="-580,-148" rotation="0" hflip="1" vflip="1" label="DEC" idLabPos="-10.7323,21.7629" labelrot="0" valLabPos="-16,20" valLabRot="0" Norm_Close="false" Poles="1" />
+
+<item itemtype="Node" CircId="Node-33" mainComp="false" Pos="-612,-148" />
 
 <item itemtype="Connector" uid="Connector-37" startpinid="mega328-1-PORTB0" endpinid="Seven Segment-25-pin_a" pointList="-532,-76,-532,-60,-476,-60,-476,-188,-400,-188" />
 
@@ -32,6 +34,14 @@
 
 <item itemtype="Connector" uid="Connector-54" startpinid="Ground-26-Gnd" endpinid="Resistor-29-rPin" pointList="-368,-76,-368,-88" />
 
-<item itemtype="Connector" uid="Connector-59" startpinid="Ground-23-Gnd" endpinid="Push-5-pinP0" pointList="-612,-76,-612,-172,-596,-172" />
+<item itemtype="Connector" uid="Connector-62" startpinid="mega328-1-PORTD1" endpinid="Push-31-switch0pinN" pointList="-532,-164,-548,-164,-548,-148,-564,-148" />
+
+<item itemtype="Connector" uid="Connector-69" startpinid="mega328-1-PORTD0" endpinid="Push-5-switch0pinN" pointList="-532,-172,-548,-172,-548,-188,-564,-188" />
+
+<item itemtype="Connector" uid="Connector-71" startpinid="Push-5-pinP0" endpinid="Node-33-1" pointList="-596,-188,-612,-188,-612,-148" />
+
+<item itemtype="Connector" uid="Connector-72" startpinid="Push-31-pinP0" endpinid="Node-33-0" pointList="-596,-148,-612,-148" />
+
+<item itemtype="Connector" uid="Connector-73" startpinid="Node-33-2" endpinid="Ground-23-Gnd" pointList="-612,-148,-612,-76" />
 
 </circuit>
