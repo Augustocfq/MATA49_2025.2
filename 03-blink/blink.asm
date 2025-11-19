@@ -2,7 +2,6 @@
 .include "m328Pdef.inc"
 .list
 
-
 INICIO:
 	LDI R16, 0b11111111
 	OUT DDRD, R16
