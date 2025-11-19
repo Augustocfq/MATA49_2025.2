@@ -1,47 +1,51 @@
-;
-; BotaoLed.asm
-;
-; Created: 11/5/2025 11:38:12 PM
-; Author : pedro
-; Código 5
-
-
-;Este código é o primeiro nessa sequência que vai implementar input. No caso, vamos trabalhar com um botão em lógica negativa (quando pressionado, bit=0).
+.nolist
+.include "m328Pdef.inc"
+.list
 
 INICIO:
-	LDI R16, 0b11111100
+	LDI R16, 0b11111111
+	OUT DDRB, R16
+	LDI R16, 0b00000000
 	OUT DDRD, R16
-
-	LDI R16, 0x00000011
+	LDI R16, 0b00000001
 	OUT PORTD, R16
 
+	LDI R16, 0
+	CALL DECODIFICAR
+	OUT PORTB, R0
+
 PRINCIPAL:
-;vamos implementar um looping responsável por ler o estado do botão, lembrando que botão pressionado =0 e botao solto = 1.
+	SOLTO:
+		SBIC PIND, PD0
+		RJMP SOLTO
+		RJMP PRESSIONADO
 
-	ISBOTAOSOLTO:
-		SBIC PIND, PD0 ; PINx é um registrador responsável por receber dados do pino configurado como entrada, nesse caso PD0. 
-;Essa linha verifica se o PD0 tem valor 0, se tiver, significa que o botão foi pressionado, pulando para o proximo loop.
-		RJMP ISBOTAOSOLTO
-		RJMP ISBOTAOPRESSIONADO
-
-	ISBOTAOPRESSIONADO:
-		SBIS PIND, PD0 ; Similar à linha de cima, essa verifica se o botão foi solto, ou seja, se seu bit é 1. se for ele vai ligar ou desligar o LED.
-		
-		RJMP ISBOTAOPRESSIONADO
-
-		SBIS PORTD, PD7 ; Verifica se o pino PD7 (configurado como saída) está ligado, se tiver ele será desligado, caso contrário, ele será ligado.
-		RJMP LIGAR
-		RJMP DESLIGAR
-
-; Exercício: Estudar sobre as funções SBIS, SBIC, SBI e SBC, e modificar o código de modo que o botão que ligue ou desligue o LED seja o botão
-; associado ao pino PD3 no circuito do simulide. 
-
-LIGAR:
-	SBI PORTD, PD7
-	RJMP PRINCIPAL
-DESLIGAR:
-	CBI PORTD, PD7
-	RJMP PRINCIPAL
-
-
+	PRESSIONADO:
+		SBIS PIND, PD0
+		RJMP PRESSIONADO
+		CALL INCREMENTAR
+		CALL DECODIFICAR
+		OUT PORTB, R0
+		RJMP SOLTO
 	
+INCREMENTAR:
+	CPI R16, 9
+	BREQ ZERAR
+		INC R16
+		RET
+	ZERAR:
+		LDI R16, 0
+		RET
+
+DECODIFICAR:
+    LDI ZH, HIGH(TABELA << 1)
+    LDI ZL, LOW(TABELA << 1)
+    ADD ZL, R16
+    BRCC LEITURA
+    INC ZH
+    LEITURA:
+        LPM R0, Z
+    RET
+
+TABELA:
+	.db 0b00111111, 0b00000110, 0b01011011, 0b01001111, 0b01100110, 0b01101101, 0b01111101, 0b00000111, 0b01111111, 0b01101111
