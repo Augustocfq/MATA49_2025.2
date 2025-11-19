@@ -107,7 +107,7 @@ Antes de decidir o desvio, o microcontrolador avalia a relação entre valores p
     * **Clock:** 1 ciclo
   * **Aplicação:** Utilizada para verificar se uma variável atingiu um valor específico, apenas as flags são atualizadas; o resultado numérico é descartado.
 
-* **CPC (Compare with Carry):** Compara dois registradores considerando o valor atual da flag de Carry ($Rx~1 - Rx~1 - C$).
+* **CPC (Compare with Carry):** Compara dois registradores considerando o valor atual da flag de Carry ($Rd - Rr - C$).
   * **Características:**
     * **Tamanho da Palavra:** 1 palavra (2 bytes)
     * **Clock:** 1 ciclo
