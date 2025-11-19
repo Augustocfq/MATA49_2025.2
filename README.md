@@ -168,11 +168,11 @@ Ficou totalmente coerente, tecnicamente correto e alinhado com a arquitetura AVR
 
 ## Jump Tables
 
-Uma Jump Table de dados é uma estrutura de armazenamento colocada na memória de programa que permite mapear rapidamente um índice para um valor específico. Aqui cada entrada da tabela contém uma palavra de 16 bits que será lida como dado durante a execução. Esse tipo de estrutura é extremamente útil quando se deseja consultar rapidamente constantes, códigos pré-calculados ou valores associados a um conjunto fixo de índices.
+Uma Jump Table de dados é uma estrutura de armazenamento colocada na memória de programa que permite mapear rapidamente um índice para um valor específico. Aqui cada entrada da tabela contém uma um byte que será lida como dado durante a execução. Esse tipo de estrutura é extremamente útil quando se deseja consultar rapidamente constantes, códigos pré-calculados ou valores associados a um conjunto fixo de índices.
 
 ### Conceito Fundamental
 
-Uma data Jump Table consiste em um array de palavras (16 bits) gravadas na memória Flash. Cada posição representa um valor associado a um índice — por exemplo, constantes, limites, máscaras, endereços absolutos para periféricos, ou qualquer informação que precise ficar armazenada de forma imutável. A leitura desse valor é feita de maneira eficiente através do registrador Z, que aponta para a tabela na Flash, e da instrução LPM, que permite carregar bytes da memória de programa para registradores.
+Uma data Jump Table consiste em um array de bytes gravadas na memória Flash. Cada posição representa um valor associado a um índice — por exemplo, constantes, limites, máscaras, endereços absolutos para periféricos, ou qualquer informação que precise ficar armazenada de forma imutável. A leitura desse valor é feita de maneira eficiente através do registrador Z, que aponta para a tabela na Flash, e da instrução LPM, que permite carregar bytes da memória de programa para registradores.
 
 ### Implementação no AVR
 
@@ -182,7 +182,7 @@ Para implementar uma data Jump Table no AVR, utilizamos três elementos principa
 
 1. **O registrador de 16 bits Z:** Usado como ponteiro para a memória Flash
 2. **A instrução LPM:** Responsável por carregar bytes da Flash para registradores
-3. **A diretiva .dw:** Usada para definir palavras estáticas na memória de programa
+3. **A diretiva .db:** Usada para definir bytes estáticos na memória de programa
 
 Escolhendo R16 como índice da tabela, esse offset é somado ao endereço base da tabela carregado no registrador Z, localizando assim exatamente os dois bytes (LSB e MSB) que compõem a word desejada. Finalmente, para a leitura da tabela, a instrução LPM é usada para extrair o valor, armazenando em R0 o valor que foi lido.
 
@@ -201,8 +201,8 @@ LEITURA:
     LPM R0, Z
 
 TABELA:
-    .dw 0x...
-    .dw 0x...
-    .dw 0x...
+    .db 0x...
+    .db 0x...
+    .db 0x...
     ...
 ```
