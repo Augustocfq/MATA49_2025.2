@@ -1,8 +1,8 @@
-# Piscar LED em ciclos de 1 segundo
+# Blink
 
 ## Obejetivo
 
-Acender um LED com o anodo ligado à uma porta do µC e o cátodo ligado à GND.
+Acender um LED durante um segundo e manter-lo apagado durante um segundo em loop
 
 ## Circuito
 
