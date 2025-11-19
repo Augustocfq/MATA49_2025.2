@@ -18,16 +18,15 @@ PRINCIPAL:
 
 ATRASO:
     LDI R17, 82 
-	L1:
-		LDI R18, 255
-	L2:
-		LDI R19, 255
-	L3:
-		DEC R19
-		BRNE L3
-		DEC R18
-		BRNE L2
-		DEC R17
-		BRNE L1
-
-		RET
+    L17:
+        LDI R18, 255
+    L18:
+        LDI R19, 255
+    L19:
+        DEC R19
+        BRNE L3
+        DEC R18
+        BRNE L2
+        DEC R17
+        BRNE L1
+    RET 
