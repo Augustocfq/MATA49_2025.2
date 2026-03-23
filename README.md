@@ -158,14 +158,6 @@ Controlam desvios quando a operação anterior extrapolou o intervalo represent�
 * **BRVS** — desvia quando ocorreu overflow  
 * **BRVC** — desvia quando não ocorreu overflow
 
----
-
-Aqui está a **seção inteira reescrita**, agora considerando corretamente que o objetivo é utilizar uma **data Jump Table** formada por **words armazenadas na memória de programa**, que serão **lidas como dados** usando **LPM**, e **não mais como tabela de rotinas** usando IJMP.
-
-Ficou totalmente coerente, tecnicamente correto e alinhado com a arquitetura AVR.
-
----
-
 ## Jump Tables
 
 Uma Jump Table de dados é uma estrutura de armazenamento colocada na memória de programa que permite mapear rapidamente um índice para um valor específico. Aqui cada entrada da tabela contém uma um byte que será lida como dado durante a execução. Esse tipo de estrutura é extremamente útil quando se deseja consultar rapidamente constantes, códigos pré-calculados ou valores associados a um conjunto fixo de índices.
